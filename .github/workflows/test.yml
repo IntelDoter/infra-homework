@@ -1,0 +1,61 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          cache: 'yarn'
+          node-version: 22
+
+      - name: Install dependencies
+        run: yarn
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          cache: 'yarn'
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm run build
+
+  linters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          cache: 'yarn'
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm run lint
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          cache: 'yarn'
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm run deploy
