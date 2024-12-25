@@ -19,7 +19,7 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: yarn run dependencies
+        run: yarn
 
   build:
     runs-on: ubuntu-latest
