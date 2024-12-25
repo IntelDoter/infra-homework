@@ -10,7 +10,7 @@
     "test:eslint": "node test/eslint.js",
     "test:yaml": "node test/yaml.js",
     "test:cdp": "node test/cdp.js",
-    "dependencies": "yarn && echo 'Install completed'",
+    "dependencies": "yarn install && echo 'Install completed'",
     "build": "webpack --mode=development && echo 'Build completed'",
     "lint": "eslint ./src && echo 'Lint completed'",
     "deploy": "echo deploy && echo 'Deploy completed'"
